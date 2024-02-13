@@ -9,6 +9,7 @@ const guestNav = [
 const userNav = [
   { to : '/home', text: 'Home' },
   { to : '/new', text: 'New Todo' },
+  { to : '/tot', text: 'New Todo2' },
 
 ]
 
@@ -24,9 +25,9 @@ export default function Header() {
   }
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-purple-200">
       <div className="flex-1">
-        <a className="btn btn-ghost text-xl">Hello, {user?.id ? user.username : 'Guest'}</a>
+        <a className="btn btn-ghost text-xl mx-auto w-1/2"> {user?.id ? user.username : ''}</a>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1">

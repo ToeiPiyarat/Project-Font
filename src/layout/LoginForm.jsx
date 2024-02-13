@@ -2,6 +2,7 @@ import axios from 'axios'
 import {useState} from "react";
 import useAuth from '../hooks/useAuth'
 import { useNavigate } from 'react-router-dom';
+import '../styles.css'
 
 export default function LoginForm() {
   const { setUser } = useAuth()
@@ -36,8 +37,11 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="p-5 border w-4/6 min-w-[500px] mx-auto rounded mt-5 ">
-      <div className="text-3xl mb-5">Please Login</div>
+    <div className="p-5 border w-2/6 min-w-[100px] mx-auto rounded mt-5 bg-red-100 max-w-[30vw]">
+      <div className="flex justify-center">
+        <img src="car.jpg" className="w-24 h-24 rounded-full border border-black" /></div>
+      <div className="text-3xl mb-5 flex-grow-0 text-center">จองที่จอดรถออนไลน์</div>
+      <div className="text-3xl mb-5 flex-grow-0 text-center">กรุณาเข้าสู่ระบบของท่าน</div>
       <form className="flex flex-col gap-2" onSubmit={hdlSubmit}>
         <label className="form-control w-full max-w-xs">
           <div className="label">
@@ -66,7 +70,7 @@ export default function LoginForm() {
         </label>
 
         <div className="flex gap-5 ">
-          <button type="submit" className="btn btn-outline btn-info mt-7">Login</button>
+        <button type="submit" className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white">Login</button>
         </div>
       </form>
     </div>

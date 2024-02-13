@@ -37,12 +37,12 @@ export default function RegisterForm() {
   }
 
   return (
-    <div className="p-5 border w-4/6 min-w-[500px] mx-auto rounded mt-5">
+    <div className="p-5 border w-4/6 min-w-[100px] mx-auto rounded mt-5 bg-red-100 max-w-[30vw]">
       <div className="text-3xl mb-5">Register Form</div>
       <form className="flex flex-col gap-2" onSubmit={hdlSubmit}>
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">username</span>
+            <span className="label-text">Username</span>
           </div>
           <input
             type="text"
@@ -52,21 +52,10 @@ export default function RegisterForm() {
             onChange={ hdlChange }
           />
         </label>
+        
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">E-mail</span>
-          </div>
-          <input
-            type="email"
-            className="input input-bordered w-full max-w-xs"
-            name="email"
-            value={input.email}
-            onChange={ hdlChange }
-          />
-        </label>
-        <label className="form-control w-full max-w-xs">
-          <div className="label">
-            <span className="label-text">password</span>
+            <span className="label-text">Password</span>
           </div>
           <input
             type="password"
@@ -90,7 +79,19 @@ export default function RegisterForm() {
         </label>
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">phone</span>
+            <span className="label-text">E-mail</span>
+          </div>
+          <input
+            type="email"
+            className="input input-bordered w-full max-w-xs"
+            name="email"
+            value={input.email}
+            onChange={ hdlChange }
+          />
+        </label>
+        <label className="form-control w-full max-w-xs">
+          <div className="label">
+            <span className="label-text">Phone</span>
           </div>
           <input
             type="text"
@@ -101,8 +102,8 @@ export default function RegisterForm() {
           />
         </label>
         <div className="flex gap-5 ">
-          <button  type="submit" className="btn btn-outline btn-info mt-7">Submit</button>
-          <button type="reset" className="btn btn-outline btn-warning mt-7">Reset</button>
+          <button  type="submit" className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white">Submit</button>
+          <button type="reset" className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white">Reset</button>
         </div>
       </form>
     </div>

@@ -27,7 +27,7 @@ export default function NewTodoForm() {
   }
 
   return (
-    <form className="flex flex-col min-w-[600px] border rounded w-5/6 mx-auto p-4 gap-6"
+    <form className="flex flex-col min-w-[600px] border rounded w-5/6 mx-auto p-4 gap-6 bg-green-300"
         onSubmit={hdlSubmit}
     >
       <label className="form-control w-full ">
