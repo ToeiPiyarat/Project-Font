@@ -10,8 +10,9 @@ export default function LoginForm() {
     username : '', 
     password : ''
   })
-
+  
   const navigate = useNavigate()
+  
 
   const hdlChange = e => {
     setInput( prv => ( { ...prv, [e.target.name] : e.target.value } ) )
@@ -26,6 +27,7 @@ export default function LoginForm() {
       localStorage.setItem('token', rs.data.token)
       const rs1 = await axios.get('http://localhost:8889/auth/me', {
         headers : { Authorization : `Bearer ${rs.data.token}` }
+       
       })
       navigate('/home')
       console.log(rs1.data)
@@ -34,6 +36,7 @@ export default function LoginForm() {
     }catch(err) {
       console.log( err.message)
     }
+  
   }
 
   return (
@@ -45,7 +48,7 @@ export default function LoginForm() {
       <form className="flex flex-col gap-2" onSubmit={hdlSubmit}>
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">username</span>
+            <span className="label-text">ชื่อผู้ใช้งาน</span>
           </div>
           <input
             type="text"
@@ -58,7 +61,7 @@ export default function LoginForm() {
 
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">password</span>
+            <span className="label-text">รหัสผ่าน</span>
           </div>
           <input
             type="password"
@@ -70,7 +73,7 @@ export default function LoginForm() {
         </label>
 
         <div className="flex gap-5 ">
-        <button type="submit" className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white">Login</button>
+        <button type="submit" className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white">ล็อคอิน</button>
         </div>
       </form>
     </div>

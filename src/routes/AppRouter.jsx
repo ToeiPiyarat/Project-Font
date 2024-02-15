@@ -7,6 +7,9 @@ import UserHome from '../layout/UserHome'
 import NewTodoForm from '../layout/NewTodoForm'
 import HOME from '../layout/HOME'
 import Todo from '../layout/Todo'
+// import Reseverd from '../components/Reseverd'
+import ReservedDashboard from '../components/Reseverd'
+import ReseverdForm from '../components/ReservedForm'
 
 const guestRouter = createBrowserRouter([
   {
@@ -20,7 +23,11 @@ const guestRouter = createBrowserRouter([
       { path: '/login', element: <LoginForm /> },
       { path: '/register', element: <RegisterForm />},
       { path: '/home', element:<HOME/> },
-      
+      { path: '/reserved', element:<ReseverdForm/> },
+      { path: '/reserved/show', element:<ReservedDashboard/> },
+      // { path: '/status', element:<Status/> },
+      { path: '/reserved/delete/:reservedId', element:<ReservedDashboard/> },
+
     ]
   }
 ])
@@ -38,8 +45,11 @@ const userRouter = createBrowserRouter([
       { path: '/new', element: <NewTodoForm />},
       { path: '/home', element:<HOME/> },
       { path: '/tot', element:<Todo/> },
+      { path: '/reserved', element:<ReseverdForm/> },
+      { path: '/reserved/show', element:<ReservedDashboard/> },
+      // { path: '/status', element:<Status/> },
+      { path: '/reserved/delete/:reservedId', element:<ReservedDashboard/> },
 
-      
     ]
   }
 ])

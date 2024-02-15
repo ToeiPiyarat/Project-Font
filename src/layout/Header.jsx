@@ -2,15 +2,15 @@ import {Link, useNavigate} from 'react-router-dom'
 import useAuth from '../hooks/useAuth';
 
 const guestNav = [
-  { to : '/', text: 'Login' },
-  { to : '/register', text: 'Register' },
+  { to : '/', text: 'ล็อคอิน' },
+  { to : '/register', text: 'สมัคร' },
 ]
 
 const userNav = [
-  { to : '/home', text: 'Home' },
-  { to : '/new', text: 'New Todo' },
-  { to : '/tot', text: 'New Todo2' },
-
+  { to : '/home', text: 'หน้าหลัก' },
+  { to : '/reserved/show', text: 'เช็คสถานะ' },
+  { to : '/tot', text: 'แก้ไขข้อมูล' },
+  
 ]
 
 export default function Header() {
@@ -27,6 +27,7 @@ export default function Header() {
   return (
     <div className="navbar bg-purple-200">
       <div className="flex-1">
+      <img src="car.jpg" className="w-16 h-16 rounded-full border border-black" />
         <a className="btn btn-ghost text-xl mx-auto w-1/2"> {user?.id ? user.username : ''}</a>
       </div>
       <div className="flex-none">
@@ -38,7 +39,7 @@ export default function Header() {
           ))}
           { user?.id && (
             <li>
-              <Link to='#' onClick={hdlLogout}>Logout</Link>
+              <Link to='#' onClick={hdlLogout}>ออกจากระบบ</Link>
             </li>
           ) }
         </ul>

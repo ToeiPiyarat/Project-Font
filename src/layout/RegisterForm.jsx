@@ -38,11 +38,11 @@ export default function RegisterForm() {
 
   return (
     <div className="p-5 border w-4/6 min-w-[100px] mx-auto rounded mt-5 bg-red-100 max-w-[30vw]">
-      <div className="text-3xl mb-5">Register Form</div>
+      <div className="text-3xl mb-5">กรอกข้อมูลเพื่อสมัครใช้งาน</div>
       <form className="flex flex-col gap-2" onSubmit={hdlSubmit}>
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">Username</span>
+            <span className="label-text">ชื่อผู้ใช้งาน</span>
           </div>
           <input
             type="text"
@@ -55,7 +55,7 @@ export default function RegisterForm() {
         
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">Password</span>
+            <span className="label-text">รหัสผ่าน</span>
           </div>
           <input
             type="password"
@@ -67,7 +67,7 @@ export default function RegisterForm() {
         </label>
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">Confirm Password</span>
+            <span className="label-text">ยื่นยันรหัสผ่าน</span>
           </div>
           <input
             type="password"
@@ -79,7 +79,7 @@ export default function RegisterForm() {
         </label>
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">E-mail</span>
+            <span className="label-text">อีเมล์</span>
           </div>
           <input
             type="email"
@@ -91,7 +91,7 @@ export default function RegisterForm() {
         </label>
         <label className="form-control w-full max-w-xs">
           <div className="label">
-            <span className="label-text">Phone</span>
+            <span className="label-text">เบอร์โทร</span>
           </div>
           <input
             type="text"
