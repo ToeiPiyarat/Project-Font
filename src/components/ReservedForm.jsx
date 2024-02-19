@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 export default function ReseverdForm() {
   const [input, setInput] = useState({
     reserverDate: new Date(),
-    car_id: "",
+    carRegisteration: "",
     phone: "",
   });
 
@@ -23,19 +23,28 @@ export default function ReseverdForm() {
 
   const createReserve = async (input) => {
     try {
-        alert(typeof input.reserverDate)
-        const rs = await axios.post('http://localhost:8889/reserved/creacte', input)
-        if (rs === 200) {
-            alert('Reserved Successfully')
+      // alert(typeof input.reserverDate)
+      const token = localStorage.getItem("token");
+      if (!token) {
+        return;
+      }
+      const rs = await axios.post(
+        "http://localhost:8889/reserved/creacte",
+        input,
+        {
+          headers: { Authorization: `Bearer ${token}` },
         }
+      );
+      if (rs === 200) {
+        alert("Reserved Successfully");
+      }
     } catch (error) {
-        alert(error)
+      alert(error);
     }
-    
-  }
+  };
 
   const Reserved = (e) => {
-    createReserve(input)
+    createReserve(input);
     e.preventDefault();
 
     navigate("/reserved/show");
@@ -54,8 +63,8 @@ export default function ReseverdForm() {
               <input
                 type="text"
                 className="input input-bordered w-full max-w-xs"
-                name="car_id"
-                value={input.car_id}
+                name="carRegisteration"
+                value={input.carRegisteration}
                 onChange={hdlChange}
               />
             </label>

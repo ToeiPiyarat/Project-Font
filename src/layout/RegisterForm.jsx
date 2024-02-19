@@ -102,8 +102,8 @@ export default function RegisterForm() {
           />
         </label>
         <div className="flex gap-5 ">
-          <button  type="submit" className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white">Submit</button>
-          <button type="reset" className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white">Reset</button>
+          <button  type="submit" className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white">สมัคร</button>
+          {/* <button type="reset" className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white">รีเซ็ด</button> */}
         </div>
       </form>
     </div>

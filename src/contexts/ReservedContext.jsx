@@ -8,7 +8,11 @@ function ReservedContextProvider(props) {
   useEffect(() => {
     const showReserved = async () => {
       try {
-        const rs = await axios.get("http://localhost:8889/reserved/show");
+        const token = localStorage.getItem('token')
+        if (!token) {return}
+        const rs = await axios.get("http://localhost:8889/reserved/show", {
+          headers: {Authorization: `Bearer ${token}`}
+        });
         // console.log(rs.data)
         setData(rs.data)
 
@@ -24,7 +28,6 @@ function ReservedContextProvider(props) {
     try {
         const re = await axios.delete(`http://localhost:8889/reserved/delete/${reservedId}`);
         if (re.status === 200) {
-            alert('Delete Successfully')
         }
 
     } catch (error) {

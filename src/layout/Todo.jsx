@@ -1,4 +1,4 @@
-import React from 'react'
+import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
 export default function Todo() {
@@ -22,7 +22,6 @@ export default function Todo() {
             type="text"
             className="input input-bordered w-full max-w-xs"
             name="username"
-            
           />
         </label>
   
