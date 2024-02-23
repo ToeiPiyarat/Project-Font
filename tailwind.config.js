@@ -8,7 +8,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ['Krub', 'sans-serif'],
+      sans: ['Chonburi', 'sans-serif'],
     },
     extend: {},
   },

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles.css'
 
 export default function LoginForm() {
-  const { setUser } = useAuth()
+  const { setUser, user } = useAuth()
   const [input, setInput] = useState({
     username : '', 
     password : ''
@@ -23,15 +23,18 @@ export default function LoginForm() {
       e.preventDefault()
       // validation
       const rs = await axios.post('http://localhost:8889/auth/login', input)
-      console.log(rs.data.token)
+      // console.log(rs.data.token)
       localStorage.setItem('token', rs.data.token)
       const rs1 = await axios.get('http://localhost:8889/auth/me', {
         headers : { Authorization : `Bearer ${rs.data.token}` }
        
       })
-      navigate('/home')
-      console.log(rs1.data)
       setUser(rs1.data)
+      // console.log(user)
+      // navigate('/home')
+      // // console.log(rs1.data)
+      
+      // navigate('/admin')
       
     }catch(err) {
       console.log( err.message)

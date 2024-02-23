@@ -18,6 +18,7 @@ function AuthContextProvider(props) {
           headers : { Authorization : `Bearer ${token}` }
         })
         setUser(rs.data)
+        // console.log(user)
       }catch(err) {
         console.log(err.message)
       }finally {

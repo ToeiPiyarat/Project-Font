@@ -1,21 +1,22 @@
 import React, { useContext } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ReservedContext, {
-  ReservedContextProvider,
-} from "../contexts/ReservedContext";
+import ReservedContext from "../contexts/ReservedContext";
 
 export default function ReservedDashboard() {
-  return <Reseverd />;
+  return (
+      <Reseverd />
+  );
 }
 
 function Reseverd() {
-  const { data } = useContext(ReservedContext);
+  const { adminData } = useContext(ReservedContext);
 
-  // console.log(data);
+
+
   const navigate = useNavigate();
   const back = () => {
-    navigate("/home");
+    navigate("/admin");
   };
   const rester = () => {
     window.location.reload();
@@ -23,7 +24,7 @@ function Reseverd() {
 
   return (
     <div>
-      {data?.map((item) => (
+      {adminData?.map((item) => (
         <ReseverdItem key={item.id} item={item} />
       ))}
       <div className="grid place-items-center">
@@ -31,7 +32,7 @@ function Reseverd() {
           onClick={rester}
           className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white"
         >
-          รีเซ็ดหน้าจอ เพื่อดูข้อมูล{" "}
+          รีเซ็ดหน้าจอ{" "}
         </button>
         <button
           onClick={back}
@@ -54,24 +55,24 @@ function ReseverdItem({ item }) {
   };
 
   return (
-    <div className="overflow-x-auto relative">
+    <div className="overflow-x-auto relative mt-4">
   <table className="w-full table-auto">
     <thead>
       <tr className="bg-green-100">
-        <th className="px-6 py-3 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-          USER ID
+        <th className="px-6 py-4 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
+          User ID
+        </th>
+        <th className="px-6 py-4 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
+          Car Registration
+        </th>
+        <th className="px-6 py-4 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
+          Reservation Date
+        </th>
+        <th className="px-6 py-4 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
+          Phone
         </th>
         <th className="px-6 py-3 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-          CAR REGISTRATION
-        </th>
-        <th className="px-6 py-3 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-          RESERVATION DATE
-        </th>
-        <th className="px-6 py-3 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-          PHONE
-        </th>
-        <th className="px-6 py-3 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-          ACTION
+          Action
         </th>
       </tr>
     </thead>

@@ -7,6 +7,7 @@ export default function ReseverdForm() {
     reserverDate: new Date(),
     carRegisteration: "",
     phone: "",
+    status:"RESERVED"
   });
 
   const navigate = useNavigate();
