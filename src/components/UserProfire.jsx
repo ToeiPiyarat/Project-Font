@@ -28,6 +28,7 @@ export default function UserProfire() {
         e.preventDefault()
         updateProfile(update)
         setIsUpdate(false)
+        window.location.reload();
     }
 
     const hdlCancel = () => {
