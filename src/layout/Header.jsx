@@ -32,11 +32,15 @@ export default function Header() {
     navigate('/')
   }
 
+  const hdlProfire = () => {
+    navigate('/profire')
+  }
+
   return (
       <div className="navbar bg-gradient-to-r from-purple-300 to-indigo-400 py-3 px-4 flex items-center justify-between">
         <div className="flex items-center">
             <img src="https://png.pngtree.com/png-clipart/20230412/ourmid/pngtree-car-handsome-silver-car-png-image_6679645.png" className="w-16 h-16 rounded-full border border-black mr-4" />
-              <a className="btn btn-ghost text-xl">{user?.id ? user.username : ''}</a>
+              <a onClick={hdlProfire} className="btn btn-ghost text-xl">{user?.id ? user.username : ''}</a>
         </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal px-1 flex items-center">

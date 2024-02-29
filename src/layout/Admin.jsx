@@ -7,6 +7,7 @@ export default function Admin() {
   const linkToReserved = () => {
     navigate("/reserved/edit");
   };
+  
 
   return (
     <><br /><br /><br />
