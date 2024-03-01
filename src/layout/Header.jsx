@@ -9,7 +9,7 @@ const guestNav = [
 const userNav = [
   { to : '/home', text: 'ทำการจอง' },
   { to : '/reserved/show', text: 'เช็คสถานะ' },
-  { to : '/profire', text:'แก้ไขข้อมูลของท่าน' }
+  { to : '/profire', text:'แก้ไขข้อมูลส่วนตัว' },
   
 ]
 
