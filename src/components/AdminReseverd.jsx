@@ -47,7 +47,7 @@ function ReseverdItem({ item }) {
   const hdlDelete = () => {
     deleteReserved(item.id);
     history.go(0);
-    alert("ท่านได้ยกเลิกการจองแล้ว");
+    alert("ท่านได้ยกเลิกการจองของผู้ใช้งานคนนี้แล้ว");
   };
 
   return (
@@ -57,19 +57,19 @@ function ReseverdItem({ item }) {
           <thead>
             <tr className="bg-green-100">
               <th className="px-6 py-4 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-                User ID
+                เลขที่
               </th>
               <th className="px-6 py-4 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-                Car Registration
+                ทะเบียน
               </th>
               <th className="px-6 py-4 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-                Reservation Date
+                วัน เวลาที่จอง
               </th>
               <th className="px-6 py-4 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-                Phone
+                เบอร์โทรศัพท์
               </th>
               <th className="px-6 py-3 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-                Action
+                
               </th>
             </tr>
           </thead>

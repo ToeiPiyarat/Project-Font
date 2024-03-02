@@ -14,9 +14,8 @@ export default function UserReseverd() {
     <p className="text-lg mb-2 text-gray-700">ตอนนี้ท่านเข้าสู่ระบบแล้ว</p>
     <p className="text-lg mb-4 text-gray-700">สามารถทำการจองรถได้แล้ว</p>
     <div className="card-actions flex justify-center">
-      <button onClick={linkToReserved} className="btn btn-primary bg-gradient-to-r from-green-300 to-green-400 hover:from-green-400 hover:to-green-500 text-white px-4 py-2 rounded-md shadow-md transition-colors duration-300">
-        จองตรงนี้
-      </button>
+      <button onClick={linkToReserved} className="btn btn-primary bg-gradient-to-r from-green-300 to-green-400 hover:from-green-400 hover:to-green-500 text-white 
+        px-4 py-2 rounded-md shadow-md transition-colors duration-300">จองตรงนี้</button>
     </div>
   </div>
 </div>

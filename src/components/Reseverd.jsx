@@ -60,19 +60,19 @@ function ReseverdItem({ item }) {
           <thead>
             <tr className="bg-green-100">
               <th className="px-3 py-2 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-                USER ID
+                ผู้ใช้งานที่
               </th>
               <th className="px-3 py-2 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-                CAR REGISTRATION
+                ทะเบียน
               </th>
               <th className="px-3 py-2 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-                RESERVATION DATE
+                วัน เวลาที่จอง
               </th>
               <th className="px-3 py-2 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-                PHONE
+                เบอร์โทรศัพท์
               </th>
               <th className="px-3 py-2 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-                ACTION
+                
               </th>
             </tr>
           </thead>

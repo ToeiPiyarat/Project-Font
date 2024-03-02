@@ -71,7 +71,7 @@ export default function ReseverdForm() {
             </label>
             <label className="form-control w-full max-w-[220px] ">
               <div className="label">
-                <span className="label-text">วัน-เดือน-ปี</span>
+                <span className="label-text">วัน เวลาที่จอง</span>
               </div>
               <input
                 type="datetime-local"
@@ -82,7 +82,7 @@ export default function ReseverdForm() {
             </label>
             <label className="form-control w-full max-w-xs">
               <div className="label">
-                <span className="label-text">เบอร์โทร</span>
+                <span className="label-text">เบอร์โทรศัพท์</span>
               </div>
               <input
                 type="text"

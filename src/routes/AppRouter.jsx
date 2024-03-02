@@ -19,14 +19,14 @@ const guestRouter = createBrowserRouter([
     </>,
     children: [
       { index: true, element: <LoginForm /> },
-      { path: '/login', element: <LoginForm /> },
-      { path: '/register', element: <RegisterForm />},
-      { path: '/home', element:<HOME/> },
-      { path: '/reserved', element:<ReseverdForm/> },
-      { path: '/reserved/show', element:<ReservedDashboard/> },
-      { path: '/reserved/delete/:reservedId', element:<ReservedDashboard/> },
-      { path: '*', element: <p> PAGE NOT FOUND</p>},
-      { path: '/reserved/edit', element: <AdminReseverd/> },
+      // { path: '/login', element: <LoginForm /> },
+      // { path: '/register', element: <RegisterForm />},
+      // { path: '/home', element:<HOME/> },
+      // { path: '/reserved', element:<ReseverdForm/> },
+      // { path: '/reserved/show', element:<ReservedDashboard/> },
+      // { path: '/reserved/delete/:reservedId', element:<ReservedDashboard/> },
+      // { path: '*', element: <p> PAGE NOT FOUND</p>},
+      // { path: '/reserved/edit', element: <AdminReseverd/> },
 
     ]
   }
