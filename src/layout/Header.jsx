@@ -10,12 +10,11 @@ const userNav = [
   { to : '/home', text: 'ทำการจอง' },
   { to : '/reserved/show', text: 'เช็คสถานะ' },
   { to : '/profire', text:'แก้ไขข้อมูลส่วนตัว' },
-  
 ]
 
 const adminNav = [
   { to : '/admin', text: 'หน้าหลัก' },
-  { to : '/reserved/edit', text: 'เช็คสถานะ' },
+  { to : '/reserved/edit', text: 'เช็คสถานะผู้ใช้งาน' },
 ]
 
 export default function Header() {
