@@ -43,39 +43,36 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="p-5 border w-2/6 min-w-[100px] mx-auto rounded mt-5 bg-red-100 max-w-[30vw]">
-      <div className="flex justify-center">
-        <img src="car.jpg" className="w-24 h-24 rounded-full border border-black" /></div>
-      <div className="text-3xl mb-5 flex-grow-0 text-center">จองที่จอดรถออนไลน์</div>
-      <div className="text-3xl mb-5 flex-grow-0 text-center">กรุณาเข้าสู่ระบบของท่าน</div>
-      <form className="flex flex-col gap-2" onSubmit={hdlSubmit}>
-        <label className="form-control w-full max-w-xs">
-          <div className="label">
-            <span className="label-text">ชื่อผู้ใช้งาน</span>
-          </div>
-          <input
-            type="text"
-            className="input input-bordered w-full max-w-xs"
-            name="username"
-            value={input.username}
-            onChange={ hdlChange }
-          />
-        </label>
+    <div class="p-5 border w-2/6 min-w-[100px] mx-auto rounded mt-5 bg-red-100 max-w-[30vw]">
+  <div class="flex justify-center">
+    <img src="car.jpg" class="w-24 h-24 rounded-full border border-black" />
+  </div>
+  <div class="text-3xl mb-5 flex-grow-0 text-center">จองที่จอดรถออนไลน์</div>
+  <div class="text-3xl mb-5 flex-grow-0 text-center">กรุณาเข้าสู่ระบบของท่าน</div>
+  <form class="flex flex-col gap-2" onSubmit={hdlSubmit}>
+    <label class="form-control w-full max-w-full flex justify-start items-center">
+      <span class="label-text mr-2">ชื่อผู้ใช้งาน</span>
+      <input
+        type="text"
+        class="input input-bordered w-full max-w-full"
+        name="username"
+        value={input.username}
+        onChange={hdlChange}
+      />
+    </label>
 
-        <label className="form-control w-full max-w-xs">
-          <div className="label">
-            <span className="label-text">รหัสผ่าน</span>
-          </div>
-          <input
-            type="password"
-            className="input input-bordered w-full max-w-xs"
-            name="password"
-            value={ input.password }
-            onChange={ hdlChange }
-          />
-        </label>
+    <label class="form-control w-full max-w-full flex justify-start items-center">
+      <span class="label-text mr-2">รหัสผ่าน</span>
+      <input
+        type="password"
+        class="input input-bordered w-full max-w-full"
+        name="password"
+        value={input.password}
+        onChange={hdlChange}
+      />
+    </label>
 
-        <div className="flex gap-5 ">
+        <div className="flex justify-center">
         <button type="submit" className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white">ล็อคอิน</button>
         </div>
       </form>

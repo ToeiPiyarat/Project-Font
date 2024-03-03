@@ -54,7 +54,7 @@ function ReseverdItem({ item }) {
   };
 
   return (
-    <div className="overflow-x-auto relative">
+    <div className="overflow-x-auto relative flex justify-center">
       <div className="mx-auto max-w-[700px] my-4">
         <table className="table-auto bg-white border border-green-200 rounded-lg">
           <thead>

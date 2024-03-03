@@ -8,7 +8,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ['Chonburi', 'sans-serif'],
+      sans: ['Sriracha', 'sans-serif'],
     },
     extend: {},
   },
