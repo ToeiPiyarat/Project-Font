@@ -8,7 +8,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ['Sriracha', 'sans-serif'],
+      sans: ['Kanit', 'sans-serif'],
     },
     extend: {},
   },

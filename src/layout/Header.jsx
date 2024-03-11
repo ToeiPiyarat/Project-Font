@@ -10,6 +10,8 @@ const userNav = [
   { to : '/home', text: 'ทำการจอง' },
   { to : '/reserved/show', text: 'เช็คสถานะ' },
   { to : '/profire', text:'แก้ไขข้อมูลส่วนตัว' },
+  { to : '/vechinumber', text:'เพิ่มเลขทะเบียนรถ' },
+  
 ]
 
 const adminNav = [
@@ -23,6 +25,7 @@ export default function Header() {
   // console.log(user?.role);
   // const finalNav = user?.id ?  userNav : guestNav
   const finalNav = user?.id ? user?.role === 'ADMIN' ? adminNav : userNav : guestNav;
+  
   
 
   const navigate = useNavigate()
@@ -39,7 +42,6 @@ export default function Header() {
   return (
       <div className="navbar bg-gradient-to-r from-purple-300 to-indigo-400 py-3 px-4 flex items-center justify-between">
         <div className="flex items-center">
-            <img src="https://png.pngtree.com/png-clipart/20230412/ourmid/pngtree-car-handsome-silver-car-png-image_6679645.png" className="w-16 h-16 rounded-full border border-black mr-4" />
             <a onClick={hdlProfire} className="text-2xl font-bold bg-gradient-to-br from-blue-400 to-purple-600 bg-clip-text text-transparent cursor-pointer hover:text-4xl">{user?.id ? user.username : ''}</a>
         </div>
       <div className="flex-none">

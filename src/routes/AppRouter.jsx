@@ -9,6 +9,8 @@ import ReseverdForm from '../components/ReservedForm'
 import Admin from '../layout/Admin'
 import AdminReseverd from'../components/AdminReseverd'
 import UserProfire from '../components/UserProfire'
+import UserVechinumber from '../components/UserVechinumber'
+import USerAddCar from '../components/USerAddCar'
 
 const guestRouter = createBrowserRouter([
   {
@@ -48,7 +50,10 @@ const userRouter = createBrowserRouter([
       { path: '/reserved/delete/:reservedId', element:<ReservedDashboard/> },
       { path: '*', element: <p> PAGE NOT FOUND</p>},
       { path: '/reserved/edit', element: <AdminReseverd/> },
-      { path: '/profire', element: <UserProfire/> }
+      { path: '/profire', element: <UserProfire/> },
+      { path: '/vechinumber', element: <UserVechinumber/> },
+      { path: '/add', element: <USerAddCar/> },
+
       
 
     ]
@@ -72,7 +77,7 @@ const adminRouter = createBrowserRouter([
       { path: '/admin', element:<Admin/> },
       { path: '*', element: <p> PAGE NOT FOUND</p>},
       { path: '/reserved/edit', element: <AdminReseverd/> },
-
+      { path: '/add', element: <USerAddCar/> },
     ]
   }
 ])

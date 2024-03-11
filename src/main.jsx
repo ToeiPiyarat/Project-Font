@@ -5,13 +5,16 @@ import "./index.css";
 import "./styles.css";
 import { AuthContextProvider } from "./contexts/AuthContext.jsx";
 import { ReservedContextProvider } from "./contexts/ReservedContext.jsx";
+import { CarNumberContextProvider } from "./contexts/CarNumberContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AuthContextProvider>
-      <ReservedContextProvider>
-        <App />
-      </ReservedContextProvider>
+      <CarNumberContextProvider>
+        <ReservedContextProvider>
+          <App />
+        </ReservedContextProvider>
+      </CarNumberContextProvider>
     </AuthContextProvider>
   </React.StrictMode>
 );

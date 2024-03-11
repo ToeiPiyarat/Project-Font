@@ -10,7 +10,8 @@ export default function RegisterForm() {
     password : '',
     confirmPassword : '',
     email : '',
-    phone : ''
+    phone : '',
+    vehicleNumber: "",
   })
 
   const hdlChange = e => {

@@ -65,9 +65,7 @@ function ReseverdItem({ item }) {
               <th className="px-6 py-4 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
                 วัน เวลาที่จอง
               </th>
-              <th className="px-6 py-4 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
-                เบอร์โทรศัพท์
-              </th>
+              
               <th className="px-6 py-3 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
                 
               </th>
@@ -79,14 +77,12 @@ function ReseverdItem({ item }) {
                 {item.user_id}
               </td>
               <td className="px-6 py-4 text-center whitespace-nowrap border-b border-gray-200">
-                {item.carRegisteration}
+                {item.vehicleNumber}
               </td>
               <td className="px-6 py-4 text-center whitespace-nowrap border-b border-gray-200">
-                {new Date(item.reserverDate).toLocaleString("en-US")}
+                {new Date(item.reserverDate).toLocaleString("th-TH")}
               </td>
-              <td className="px-6 py-4 text-center whitespace-nowrap border-b border-gray-200">
-                {item.phone}
-              </td>
+              
               <td className="px-6 py-4 text-center whitespace-nowrap border-b border-gray-200">
                 <button
                   onClick={hdlDelete}
