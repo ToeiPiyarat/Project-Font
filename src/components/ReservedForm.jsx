@@ -1,5 +1,5 @@
+import React, { useContext, useState } from "react";
 import axios from "axios";
-import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CarNumberContext from "../contexts/CarNumberContext";
 import ReservedContext from "../contexts/ReservedContext";
@@ -7,18 +7,22 @@ import ReservedContext from "../contexts/ReservedContext";
 export default function ReseverdForm() {
   const { car } = useContext(CarNumberContext);
   const { adminData } = useContext(ReservedContext);
-  // console.log(data);
+  const navigate = useNavigate(); // ย้าย useNavigate มาไว้ที่นี่
+
   const [input, setInput] = useState({
-    reserverDate: new Date().toISOString().slice(0, 16),
+    reserverDate: new Date().toLocaleString("th-TH", {
+      timeZone: "Asia/Bangkok",
+      hour12: false,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit"
+    }),
     vehicleNumber: "",
     status: "RESERVED",
   });
 
-  // const {brand, model} = car?.find(item => item)
-
-  // console.log(model);
-
-  const navigate = useNavigate();
   const back = () => {
     navigate("/home");
   };
@@ -28,7 +32,6 @@ export default function ReseverdForm() {
       ...prv,
       [e.target.name]: e.target.value,
     }));
-    // console.log(input);
   };
 
   const createReserve = async (input) => {
@@ -54,24 +57,44 @@ export default function ReseverdForm() {
 
   const Reserved = async (e) => {
     e.preventDefault();
+    
+    const selectedDate = new Date(input.reserverDate);
+    const currentDate = new Date();
+  
+    // ตรวจสอบว่าวันที่จองเป็นวันที่ในอนาคตหรือไม่
+    if (selectedDate <= currentDate) {
+      alert('ไม่สามารถจองในวันที่ผ่านเวลาหรือวันปัจจุบันได้');
+      return;
+    }
+  
+    // ตรวจสอบว่าวันที่จองเกินวันปัจจุบันหรือไม่
+    const oneDayInMillis = 24 * 60 * 60 * 1000; // 1 วันในมิลลิวินาที
+    const differenceInMillis = selectedDate - currentDate;
+    if (differenceInMillis > oneDayInMillis) {
+      alert('ไม่สามารถจองวันที่ผ่านไปได้');
+      return;
+    }
+  
+    if (!input.vehicleNumber || !input.reserverDate) {
+      alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+      return;
+    }
+  
     if (adminData?.length >= 10) {
       alert('ไม่สามารถจองได้แล้ว')
       navigate('/reserved/show')
-    }else {
+    } else {
       await createReserve(input);
       navigate("/reserved/show");
       history.go(0);
     }
-
   };
 
-  // console.log(input.vehicleNumber);
   const foundCar = car?.find(
     (item) => item.vehicleNumber === input.vehicleNumber
   );
   const brand = foundCar ? foundCar.brand : "";
   const model = foundCar ? foundCar.model : "";
-  // console.log(brand);
 
   return (
     <div>
