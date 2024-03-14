@@ -5,6 +5,7 @@ const ReservedContext = createContext();
 function ReservedContextProvider(props) {
   const [data, setData] = useState(null)
   const [adminData, setAdminData] = useState(null)
+  const [trigger, setTrigger] = useState(false)
 
   useEffect(() => {
     const showReserved = async () => {
@@ -23,7 +24,7 @@ function ReservedContextProvider(props) {
     };
     showReserved();
 
-  }, []);
+  }, [trigger]);
 
 
   useEffect(() => {
@@ -51,16 +52,29 @@ function ReservedContextProvider(props) {
         const re = await axios.delete(`http://localhost:8889/reserved/delete/${reservedId}`);
         if (re.status === 200) {
         }
+        setTrigger(prv => !prv)
 
     } catch (error) {
         alert(error.message)
         
     }
 };
-    
+
+const editReserved = async (id, data) => {
+  try {
+    const token = localStorage.getItem('token');
+    await axios.patch(`http://localhost:8889/reserved/updateReseved/${id}`, data, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    alert('การจองได้รับการอัปเดตเรียบร้อยแล้ว');
+    setTrigger(prv => !prv)
+  } catch (error) {
+    console.error('เกิดข้อผิดพลาดในการอัปเดตการจอง:', error);
+  }
+};
 
   return (
-    <ReservedContext.Provider value={{ data, adminData, deleteReserved }}>
+    <ReservedContext.Provider value={{ data, adminData, deleteReserved, editReserved }}>
       {props.children}
     </ReservedContext.Provider>
   );

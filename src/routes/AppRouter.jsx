@@ -11,6 +11,7 @@ import AdminReseverd from'../components/AdminReseverd'
 import UserProfire from '../components/UserProfire'
 import UserVechinumber from '../components/UserVechinumber'
 import USerAddCar from '../components/USerAddCar'
+import EditReseved from '../components/EditReseved'
 
 const guestRouter = createBrowserRouter([
   {
@@ -53,7 +54,7 @@ const userRouter = createBrowserRouter([
       { path: '/profire', element: <UserProfire/> },
       { path: '/vechinumber', element: <UserVechinumber/> },
       { path: '/add', element: <USerAddCar/> },
-
+      { path: '/edit/*', element: <EditReseved/> },
       
 
     ]

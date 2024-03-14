@@ -48,7 +48,7 @@ export default function ReseverdForm() {
         }
       );
       if (rs.status === 200) {
-        alert("Reserved Successfully");
+        alert("ทำการจองสำเร็จ");
       }
     } catch (error) {
       alert(error);

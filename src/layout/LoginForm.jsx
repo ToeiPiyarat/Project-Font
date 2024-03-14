@@ -10,6 +10,7 @@ export default function LoginForm() {
     username: '',
     password: ''
   })
+  const [errorMessage, setErrorMessage] = useState('')
 
   const navigate = useNavigate()
 
@@ -29,7 +30,7 @@ export default function LoginForm() {
       setUser(rs1.data)
       window.location.reload();
     } catch (err) {
-      console.log(err.message)
+      setErrorMessage('ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง')
     }
   }
 
@@ -62,6 +63,8 @@ export default function LoginForm() {
             onChange={hdlChange}
           />
         </label>
+
+        {errorMessage && <p className="text-red-500 text-sm">{errorMessage}</p>}
 
         <div className="flex justify-center">
           <button type="submit" className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white">ล็อคอิน</button>

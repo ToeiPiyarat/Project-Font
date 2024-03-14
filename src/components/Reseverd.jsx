@@ -92,6 +92,7 @@ function Reserved() {
 function ReservedItem({ item, car }) {
   const { brand, model } = car.find(el => el.vehicleNumber === item.vehicleNumber);
   const { deleteReserved } = useContext(ReservedContext);
+  const navigate = useNavigate();
 
   const handleDelete = (id) => {
     const isConfirmed = window.confirm("คุณต้องการยกเลิกการจองแล้วหรือไม่?");
@@ -100,6 +101,10 @@ function ReservedItem({ item, car }) {
       alert("ท่านได้ยกเลิกการจองแล้ว");
       history.go(0); // รีโหลดหน้า
     }
+  };
+
+  const editReserved = () => {
+    navigate("/edit/"+item.id);
   };
 
   return (
@@ -117,13 +122,15 @@ function ReservedItem({ item, car }) {
         {new Date(item.reserverDate).toLocaleString("th-TH")}
       </td>
       <td className="px-3 py-2 text-center border-b border-gray-200">
-        <button
-          onClick={() => handleDelete(item.id)}
-          className="bg-red-500 hover:bg-red-600 focus:bg-red-600 text-white px-2 py-1 rounded-md"
-        >
-          ยกเลิก
+    <div className="flex gap-2">
+        <button onClick={editReserved} className="bg-yellow-500 hover:bg-yellow-600 focus:bg-yellow-600 text-white px-2 py-1 rounded-md">
+            แก้ไข
         </button>
-      </td>
+        <button onClick={() => handleDelete(item.id)} className="bg-red-500 hover:bg-red-600 focus:bg-red-600 text-white px-2 py-1 rounded-md">
+            ยกเลิก
+        </button>
+    </div>
+</td>
     </tr>
   );
 }
