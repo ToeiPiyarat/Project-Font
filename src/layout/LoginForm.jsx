@@ -12,8 +12,6 @@ export default function LoginForm() {
   })
   const [errorMessage, setErrorMessage] = useState('')
 
-  const navigate = useNavigate()
-
   const hdlChange = e => {
     setInput(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
@@ -39,7 +37,6 @@ export default function LoginForm() {
       <div className="flex justify-center">
         <img src="car.jpg" className="w-24 h-24 rounded-full border border-black" />
       </div>
-      <div className="text-3xl mb-5 flex-grow-0 text-center">จองที่จอดรถออนไลน์</div>
       <div className="text-3xl mb-5 flex-grow-0 text-center">กรุณาเข้าสู่ระบบของท่าน</div>
       <form className="flex flex-col gap-2" onSubmit={hdlSubmit}>
         <label className="form-control w-full max-w-full flex justify-start items-center">

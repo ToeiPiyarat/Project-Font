@@ -59,6 +59,7 @@ function ReseverdItem({ item }) {
               <th className="px-6 py-4 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
                 เลขที่
               </th>
+              
               <th className="px-6 py-4 text-center text-xs font-medium text-gray-600 uppercase tracking-wider border-b border-gray-200">
                 ทะเบียน
               </th>

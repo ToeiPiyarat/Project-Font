@@ -12,6 +12,7 @@ import UserProfire from '../components/UserProfire'
 import UserVechinumber from '../components/UserVechinumber'
 import USerAddCar from '../components/USerAddCar'
 import EditReseved from '../components/EditReseved'
+import Homepage from '../layout/Homepage'
 
 const guestRouter = createBrowserRouter([
   {
@@ -21,7 +22,8 @@ const guestRouter = createBrowserRouter([
       <Outlet />
     </>,
     children: [
-      { index: true, element: <LoginForm /> },
+      { index: true, element: <Homepage /> },
+      { path: '/homepage', element: <Homepage /> },
       { path: '/login', element: <LoginForm /> },
       { path: '/register', element: <RegisterForm />},
       // { path: '/home', element:<HOME/> },
@@ -55,7 +57,6 @@ const userRouter = createBrowserRouter([
       { path: '/vechinumber', element: <UserVechinumber/> },
       { path: '/add', element: <USerAddCar/> },
       { path: '/edit/*', element: <EditReseved/> },
-      
 
     ]
   }
@@ -79,6 +80,7 @@ const adminRouter = createBrowserRouter([
       { path: '*', element: <p> PAGE NOT FOUND</p>},
       { path: '/reserved/edit', element: <AdminReseverd/> },
       { path: '/add', element: <USerAddCar/> },
+      
     ]
   }
 ])

@@ -33,7 +33,7 @@ export default function USerAddCar() {
   };
 
   return (
-    <form onSubmit={Addcar} className="min-h-screen flex items-center justify-center">
+    <form onSubmit={Addcar} className="min-h-[70vh] flex items-center justify-center">
       <div className="bg-pink-100 p-6 rounded-lg ">
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-700">
