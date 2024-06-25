@@ -13,6 +13,8 @@ import UserVechinumber from '../components/UserVechinumber'
 import USerAddCar from '../components/USerAddCar'
 import EditReseved from '../components/EditReseved'
 import Homepage from '../layout/Homepage'
+import UserReservation from '../components/UserReservation'
+import Userpay from '../components/Userpay'
 
 const guestRouter = createBrowserRouter([
   {
@@ -48,7 +50,7 @@ const userRouter = createBrowserRouter([
       { index: true, element: <HOME /> },
       { path: '/login', element: <LoginForm /> },
       { path: '/home', element:<HOME/> },
-      { path: '/reserved', element:<ReseverdForm/> },
+      {path:'/reserved/form/:spot' ,element:<ReseverdForm/>},
       { path: '/reserved/show', element:<ReservedDashboard/> },
       { path: '/reserved/delete/:reservedId', element:<ReservedDashboard/> },
       { path: '*', element: <p> PAGE NOT FOUND</p>},
@@ -57,6 +59,8 @@ const userRouter = createBrowserRouter([
       { path: '/vechinumber', element: <UserVechinumber/> },
       { path: '/add', element: <USerAddCar/> },
       { path: '/edit/*', element: <EditReseved/> },
+      { path: '/reservation', element: <UserReservation/>},
+      { path: '/pay', element: <Userpay/>}
 
     ]
   }

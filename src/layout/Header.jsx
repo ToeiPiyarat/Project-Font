@@ -12,6 +12,7 @@ const userNav = [
   { to : '/reserved/show', text: 'เช็คสถานะ' },
   { to : '/profire', text:'แก้ไขข้อมูลส่วนตัว' },
   { to : '/vechinumber', text:'เพิ่มเลขทะเบียนรถ' },
+  { to : '/pay', text:'จ่ายเงิน' },
   
 ]
 

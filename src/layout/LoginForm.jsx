@@ -1,36 +1,35 @@
-import axios from 'axios'
-import { useState } from "react";
-import useAuth from '../hooks/useAuth'
-import { useNavigate } from 'react-router-dom';
-import '../styles.css'
+// LoginForm.js
+import axios from 'axios';
+import { useState } from 'react';
+import useAuth from '../hooks/useAuth';
+import '../styles.css';
 
 export default function LoginForm() {
-  const { setUser, user } = useAuth()
+  const { setUser, user } = useAuth();
   const [input, setInput] = useState({
     username: '',
     password: ''
-  })
-  const [errorMessage, setErrorMessage] = useState('')
+  });
+  const [errorMessage, setErrorMessage] = useState('');
 
   const hdlChange = e => {
-    setInput(prev => ({ ...prev, [e.target.name]: e.target.value }))
-  }
+    setInput(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
 
   const hdlSubmit = async e => {
     try {
-      e.preventDefault()
-      // validation
-      const rs = await axios.post('http://localhost:8889/auth/login', input)
-      localStorage.setItem('token', rs.data.token)
+      e.preventDefault();
+      const rs = await axios.post('http://localhost:8889/auth/login', input);
+      localStorage.setItem('token', rs.data.token);
       const rs1 = await axios.get('http://localhost:8889/auth/me', {
         headers: { Authorization: `Bearer ${rs.data.token}` }
-      })
-      setUser(rs1.data)
+      });
+      setUser(rs1.data);
       window.location.reload();
     } catch (err) {
-      setErrorMessage('ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง')
+      setErrorMessage('ชื่อผู้ใช้งานหรือรหัสผ่านไม่ถูกต้อง');
     }
-  }
+  };
 
   return (
     <div className="p-5 border w-2/6 min-w-[100px] mx-auto rounded mt-5 bg-red-100 max-w-[30vw]">

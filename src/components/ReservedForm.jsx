@@ -1,26 +1,20 @@
 import React, { useContext, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import CarNumberContext from "../contexts/CarNumberContext";
 import ReservedContext from "../contexts/ReservedContext";
 
-export default function ReseverdForm() {
+export default function ReservedForm() {
   const { car } = useContext(CarNumberContext);
   const { adminData } = useContext(ReservedContext);
-  const navigate = useNavigate(); // ย้าย useNavigate มาไว้ที่นี่
+  const navigate = useNavigate();
+  const { spot } = useParams(); // รับค่าที่จอดรถที่เลือกจาก URL
 
   const [input, setInput] = useState({
-    reserverDate: new Date().toLocaleString("th-TH", {
-      timeZone: "Asia/Bangkok",
-      hour12: false,
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit"
-    }),
+    reserverDate: new Date().toISOString().slice(0, 16),
     vehicleNumber: "",
     status: "RESERVED",
+    spot, // รวมที่จอดรถที่เลือกในข้อมูลฟอร์ม
   });
 
   const back = () => {
@@ -28,8 +22,8 @@ export default function ReseverdForm() {
   };
 
   const hdlChange = (e) => {
-    setInput((prv) => ({
-      ...prv,
+    setInput((prev) => ({
+      ...prev,
       [e.target.name]: e.target.value,
     }));
   };
@@ -57,32 +51,30 @@ export default function ReseverdForm() {
 
   const Reserved = async (e) => {
     e.preventDefault();
-    
+
     const selectedDate = new Date(input.reserverDate);
     const currentDate = new Date();
-  
-    // ตรวจสอบว่าวันที่จองเป็นวันที่ในอนาคตหรือไม่
+
     if (selectedDate <= currentDate) {
       alert('ไม่สามารถจองในวันที่ผ่านเวลาหรือวันปัจจุบันได้');
       return;
     }
-  
-    // ตรวจสอบว่าวันที่จองเกินวันปัจจุบันหรือไม่
+
     const oneDayInMillis = 24 * 60 * 60 * 1000; // 1 วันในมิลลิวินาที
     const differenceInMillis = selectedDate - currentDate;
     if (differenceInMillis > oneDayInMillis) {
       alert('ไม่สามารถจองวันที่ผ่านไปได้');
       return;
     }
-  
+
     if (!input.vehicleNumber || !input.reserverDate) {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน');
       return;
     }
-  
+
     if (adminData?.length >= 10) {
-      alert('ไม่สามารถจองได้แล้ว')
-      navigate('/reserved/show')
+      alert('ไม่สามารถจองได้แล้ว');
+      navigate('/reserved/show');
     } else {
       await createReserve(input);
       navigate("/reserved/show");
@@ -147,13 +139,13 @@ export default function ReseverdForm() {
               type="submit"
               className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white"
             >
-              ตกลง{" "}
+              ตกลง
             </button>
             <button
               onClick={back}
               className="btn btn-outline bg-green-500 hover:bg-green-600 focus:bg-green-600 hover:text-white focus:text-white"
             >
-              ยกเลิก{" "}
+              ยกเลิก
             </button>
           </div>
         </form>
