@@ -42,7 +42,7 @@ export default function Header() {
   }
 
   return (
-      <div className="navbar bg-gradient-to-r from-purple-300 to-indigo-400 py-3 px-4 flex items-center justify-between">
+      <div className="navbar  bg-[#c2c7cc] hover:bg-[#cccccc] focus:bg-[#7aa5d0] text-white py-3 px-4 flex items-center justify-between">
         <div className="flex items-center">
             <a onClick={hdlProfire} className="text-2xl font-bold bg-gradient-to-br from-blue-400 to-purple-600 bg-clip-text text-transparent cursor-pointer hover:text-4xl">{user?.id ? user.username : ''}</a>
         </div>
